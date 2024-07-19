@@ -1,5 +1,5 @@
 {
-  "name": "vanity-create2",
+  "name": "@patronumlabs/vanity-create2",
   "version": "1.0.0",
   "description": "A simple Hardhat TypeScript script that reads the bytecode of compiled contracts and generates vanity addresses based on regex provided by the developer.",
   "scripts": {
