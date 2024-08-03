@@ -10,7 +10,15 @@ While there are more efficient and faster examples with Rust, this script is pra
 
 ## Benchmark
 
-(TODO: Add benchmark results here)
+The performance of this salt generation tool heavily depends on the complexity of the regex pattern used for matching addresses. Here are some approximate benchmarks:
+
+- **Simple regex (e.g., matching 2 characters):**
+  - Approximately 10 salt found in 1 second.
+
+- **More complex regex (e.g., matching 4 characters):**
+  - Approximately 1 salt found every ~9 seconds.
+
+Please note that these benchmarks are approximations and may vary based on the specific regex pattern, hardware specifications, and other factors.
 
 ## Usage
 
@@ -35,12 +43,14 @@ npm run build
 
 4- Update the script:
 
+* Bytecode of the contract to deploy
 * [Regex Tester](https://regexr.com/)
 * [Find how many CPU cores do you have - Windows](https://www.pcworld.com/article/395047/how-many-cpu-cores-do-you-have.html)
 * [Find how many CPU cores do you have - Mac](https://support.macincloud.com/support/solutions/articles/8000087401-how-can-i-check-the-number-of-cpu-cores-on-a-mac#:~:text=Navigate%20towards%20the%20top%20left,of%20%22Total%20number%20of%20Cores%22)
 
 ```typescript
 // Constants
+import { bytecode} from "../artifacts/contracts/Lock.sol/Lock.json"; // Either import or set it as a predefined const
 const FROM = "0x16A2DDa7E466aE460C5ADd1fBc64dfB8B96E11fb"; // Adjust this based on the address of the create2 deployer
 const ADDRESS_REGEX = /^0x*cafe/i; // Adjust this based on the pattern of the address you want to find
 const WORKER_COUNT = 16; // Adjust this based on your CPU core count
